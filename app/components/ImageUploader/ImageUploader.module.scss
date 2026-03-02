@@ -1,0 +1,107 @@
+.dropzone {
+  position: relative;
+  cursor: pointer;
+  border-radius: 1rem;
+  border: 2px dashed;
+  padding: 3rem;
+  text-align: center;
+  transition: all 0.2s;
+  border-color: var(--dropzone-border);
+  background: var(--dropzone-bg);
+
+  --dropzone-border: #d4d4d8;
+  --dropzone-bg: #fafafa;
+
+  &:hover {
+    --dropzone-border: #a1a1aa;
+    --dropzone-bg: #f4f4f5;
+  }
+
+  &.dragging {
+    --dropzone-border: #3b82f6;
+    --dropzone-bg: #eff6ff;
+  }
+
+  &.uploading {
+    cursor: wait;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.iconWrapper {
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  transition: background-color 0.2s;
+  background: #e4e4e7;
+
+  .dragging & {
+    background: #dbeafe;
+  }
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  color: #71717a;
+
+  .dragging & {
+    color: #2563eb;
+  }
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #3f3f46;
+}
+
+.subtitle {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #71717a;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dropzone {
+    --dropzone-border: #3f3f46;
+    --dropzone-bg: #18181b;
+
+    &:hover {
+      --dropzone-border: #52525b;
+      --dropzone-bg: rgba(39, 39, 42, 0.7);
+    }
+
+    &.dragging {
+      --dropzone-border: #3b82f6;
+      --dropzone-bg: rgba(23, 37, 84, 0.3);
+    }
+  }
+
+  .iconWrapper {
+    background: #27272a;
+
+    .dragging & {
+      background: rgba(30, 58, 138, 0.5);
+    }
+  }
+
+  .icon {
+    color: #a1a1aa;
+
+    .dragging & {
+      color: #60a5fa;
+    }
+  }
+
+  .title {
+    color: #d4d4d8;
+  }
+}

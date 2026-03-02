@@ -1,0 +1,39 @@
+{
+  "common": {
+    "appName": "Upload Gallery",
+    "imageCount": "{{count}} ảnh",
+    "send": "Gửi"
+  },
+  "header": {
+    "subtitle": "Upload ảnh & quản lý bình luận"
+  },
+  "uploader": {
+    "dropHere": "Thả ảnh tại đây",
+    "dragOrClick": "Kéo thả ảnh hoặc nhấn để chọn",
+    "uploading": "Đang upload..."
+  },
+  "gallery": {
+    "empty": "Chưa có ảnh nào được upload",
+    "deleteImage": "Xóa ảnh"
+  },
+  "detail": {
+    "commentCount": "{{count}} bình luận",
+    "noComments": "Chưa có bình luận",
+    "authorPlaceholder": "Tên của bạn",
+    "commentPlaceholder": "Viết bình luận..."
+  },
+  "toast": {
+    "unsupported": "Không hỗ trợ: {{names}}",
+    "unsupportedDesc": "Chỉ chấp nhận {{extensions}}",
+    "uploaded": "Đã upload {{count}} ảnh",
+    "uploadFailed": "Upload thất bại, vui lòng thử lại",
+    "loadFailed": "Không thể tải danh sách ảnh",
+    "deleteFailed": "Xóa ảnh thất bại",
+    "commentFailed": "Gửi bình luận thất bại"
+  },
+  "notFound": {
+    "title": "Trang không tồn tại",
+    "description": "Đường dẫn bạn truy cập không hợp lệ hoặc đã bị xóa.",
+    "backToUpload": "Quay lại trang Upload"
+  }
+}
