@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Upload Application — Frontend
+
+Next.js frontend for image upload, gallery view, and commenting.
+
+## Tech Stack
+
+- **Next.js 16** — React framework
+- **React 19** — UI library
+- **Tailwind CSS 4** + **SCSS Modules** — Styling
+- **i18next** — Internationalization (EN / VI)
+- **browser-image-compression** — Client-side image compression before upload
+
+## Prerequisites
+
+- Node.js >= 22
+- pnpm
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Configure environment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit `.env.local`:
 
-## Learn More
+```env
+NEXT_PUBLIC_API_BASE_URL=http://localhost:4040
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Start development server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+App runs at `http://localhost:3000`.
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Drag & drop or click to upload images (JPG, PNG)
+- Auto compression before upload (max 1MB, max 1920px)
+- Image gallery with infinite scroll
+- Image detail modal with comments
+- Add comments with infinite scroll pagination
+- Language switcher (English / Vietnamese)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Scripts
+
+| Script | Description |
+|--------|-------------|
+| `pnpm dev` | Start development server |
+| `pnpm build` | Build for production |
+| `pnpm start` | Start production build |
+| `pnpm lint` | Run ESLint |
+
+## Docker
+
+```bash
+docker build \
+  --build-arg NEXT_PUBLIC_API_BASE_URL=http://localhost:4040 \
+  -t upload-app-view .
+
+docker run -p 3000:3000 upload-app-view
+```
+
+> **Note**: `NEXT_PUBLIC_API_BASE_URL` is baked at build time. Pass it as a build arg, not a runtime env var.
